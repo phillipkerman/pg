@@ -5,19 +5,8 @@
 
     <script src="phonegap.js"></script>
    
-  </head>
-  <body>
-    <p><a href="#" onclick="showAlert('touch'); return false;">Show Alert</a></p>
-    <p><a href="#" onclick="playBeep(); return false;">Play Beep</a></p>
-    <p><a href="#" onclick="vibrate(); return false;">Vibrate</a></p>
-    <p id="debugText">debugText</p>
-    <div id="canvasArea">
-        <canvas id="canvas"><p>Requires canvas support</p></canvas>
-    </div>
 
-
-
- <script type="text/javascript" charset="utf-8">
+   <script type="text/javascript" charset="utf-8">
 
     // Wait for Cordova to load
     //
@@ -25,8 +14,12 @@
     var debugText = document.getElementById("debugText"),
         canvas = document.getElementById("canvas");
 
-    document.addEventListener("deviceready", onDeviceReady, false);
-    window.addEventListener('orientationchange', handleResize);
+    
+    function onLoad() {
+        window.addEventListener('orientationchange', handleResize);
+
+        document.addEventListener("deviceready", onDeviceReady, false);
+    }
 
     // Cordova is ready
     //
@@ -66,5 +59,20 @@
     }
 
     </script>
+
+
+  </head>
+  <body onload='onLoad();'>
+    <p><a href="#" onclick="showAlert('touch'); return false;">Show Alert</a></p>
+    <p><a href="#" onclick="playBeep(); return false;">Play Beep</a></p>
+    <p><a href="#" onclick="vibrate(); return false;">Vibrate</a></p>
+    <p id="debugText">debugText</p>
+    <div id="canvasArea">
+        <canvas id="canvas"><p>Requires canvas support</p></canvas>
+    </div>
+
+
+
+
   </body>
 </html>
