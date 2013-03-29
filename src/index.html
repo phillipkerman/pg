@@ -11,26 +11,28 @@
     // Wait for Cordova to load
     //
 
-    var debugText, canvas;
+    var debugText, canvas, ctx;
     
     function onLoad() {
 
         debugText = document.getElementById("debugText");
         canvas = document.getElementById("canvas");
+        ctx = canvas.getContext("2d");
         window.addEventListener('orientationchange', handleResize);
 
         document.addEventListener("deviceready", onDeviceReady, false);
         handleResize( );
+
+        canvas.width = 100;
+        canvas.height = 100;
+        ctx.fillRect(0,0,100,100);
+
     }
 
     // Cordova is ready
     //
     function onDeviceReady() {
-        showAlert("device ready" + canvas + " " + debugText)
-        
-        canvas.width = 100;
-        canvas.height = 100;
-        canvas.drawRect(0,0,100,100);
+        showAlert("device ready ");
     }
 
 
