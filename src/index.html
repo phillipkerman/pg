@@ -26,13 +26,13 @@
         canvas = document.getElementById("canvas");
 
     document.addEventListener("deviceready", onDeviceReady, false);
+    window.addEventListener('orientationchange', handleResize);
 
     // Cordova is ready
     //
     function onDeviceReady() {
         showAlert("device ready" + canvas + " " + debugText)
-        window.addEventListener('orientationchange', handleResize);
-
+        
         canvas.width = 100;
         canvas.height = 100;
         canvas.drawRect(0,0,100,100);
